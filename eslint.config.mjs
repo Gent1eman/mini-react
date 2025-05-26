@@ -1,7 +1,8 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
+import js from "@eslint/js"
+import globals from "globals"
+import tseslint from "typescript-eslint"
+import prettier from "eslint-plugin-prettier"
+import { defineConfig } from "eslint/config"
 
 export default defineConfig([
     // 基础 ESLint 推荐规则
@@ -12,17 +13,17 @@ export default defineConfig([
     {
         files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
         plugins: { js },
-        extends: ["js/recommended"],
+        extends: ["js/recommended"]
     },
 
     // Prettier 集成
     {
         plugins: {
-            prettier,
+            prettier
         },
         rules: {
-            "prettier/prettier": "error",
-        },
+            "prettier/prettier": "error"
+        }
     },
 
     // 全局环境和语言选项
@@ -35,9 +36,9 @@ export default defineConfig([
                 ...globals.browser, // 浏览器环境
                 ...globals.es2021, // ES2021 特性
                 ...globals.node, // Node.js 环境
-                ...globals.jest, // Jest 测试环境
-            },
-        },
+                ...globals.jest // Jest 测试环境
+            }
+        }
     },
 
     // TypeScript 解析器配置
@@ -47,9 +48,9 @@ export default defineConfig([
             parser: tseslint.parser,
             parserOptions: {
                 ecmaVersion: "latest",
-                sourceType: "module",
-            },
-        },
+                sourceType: "module"
+            }
+        }
     },
 
     // 自定义规则
@@ -60,7 +61,7 @@ export default defineConfig([
             "@typescript-eslint/ban-ts-comment": "off",
             "@typescript-eslint/no-unused-vars": "off",
             "@typescript-eslint/no-var-requires": "off",
-            "no-unused-vars": "off",
-        },
-    },
-]);
+            "no-unused-vars": "off"
+        }
+    }
+])
