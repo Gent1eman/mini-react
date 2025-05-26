@@ -1,0 +1,2 @@
+packages:
+    - "packages/*" # 匹配所有 packages 目录下的子包
